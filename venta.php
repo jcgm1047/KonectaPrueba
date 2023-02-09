@@ -25,7 +25,7 @@
                 <form action="save.php" method="POST">
 
                     <!--  producto -->
-                    <select class="form-select  mt-2 " aria-label=".form-select-sm example" name="productos">
+                    <select class="form-select  mt-2 " aria-label=".form-select-sm example" name="productoVenta">
 
                         <option selected disabled>Producto</option>
 
@@ -56,70 +56,33 @@
             </div>
         </div>
         <!-- tabla resumen -->
-        <!--   
+
         <div class="col-md-8">
 
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Producto</th>
-                        <th>Referencia</th>
-                        <th>Precio</th>
-                        <th>Peso</th>
-                        <th>Stock</th>
-                        <th>Ventas</th>
-                        <th>Categoria</th>
-                        <th>fecha de creacion</th>
-                        <th>Acciones</th>
+                        <th>Fecha Venta</th>
                     </tr>
                 </thead>
                 <tbody>
 
                     <?php
-                    $query = "SELECT *, productos.id as idProductos FROM productos INNER JOIN categorias ON productos.categoriaId = categorias.id";
-                    $result_productos = mysqli_query($conn, $query);
-
-                    while ($row = mysqli_fetch_array($result_productos)) { ?>
-
+                    $query = "SELECT productos.nombre_producto, ventas.fecha_venta FROM ventas INNER JOIN productos ON ventas.productoId = productos.id";
+                    $result_ventas = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result_ventas)) { ?>
                         <tr>
                             <td><?php echo $row['nombre_producto'] ?></td>
-
-                            <td><?php echo $row['referencia'] ?></td>
-
-                            <td><?php echo $row['precio'] ?></td>
-
-                            <td><?php echo $row['peso'] ?></td>
-
-                            <td><?php echo $row['stock'] ?></td>
-
-                            <td><?php echo $row['ventas'] ?></td>
-
-                            <td><?php echo $row['categoria'] ?></td>
-
-                            <td><?php echo $row['create_at'] ?></td>
-
-                            <td>
-                                <a href="edit.php?id=<?php echo $row['idProductos'] ?>" class=" btn btn-secondary"><i class="fa fa-pen"></i></a>
-                                <a href="delete.php?id=<?php echo $row['idProductos'] ?>" class=" btn btn-danger"><i class="fa fa-trash"></i></a>
-                            </td>
-
-
+                            <td><?php echo $row['fecha_venta'] ?></td>
                         </tr>
-
-
                     <?php }  ?>
-
-
-
-
-
                 </tbody>
             </table>
-        </div> -->
+        </div>
     </div>
-</div>
 
 
 
-<!-- footer -->
-<?php include('includes/footer.php') ?>
+    <!-- footer -->
+    <?php include('includes/footer.php') ?>

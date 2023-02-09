@@ -1,6 +1,6 @@
 <?php
 include('db.php');
-
+/* edit productos */
 if (isset($_GET['id'])) {
 
     /* captura de datos  */
@@ -60,24 +60,24 @@ include('includes/header.php'); ?>
                     </div>
                     <!--referencia -->
                     <div class="form-group mt-2">
-                        <input type="text" name="referencia" value="<?php $referencia ?>" class="form-control" placeholder="Actualiza la referencia">
+                        <input type="text" name="referencia" value="<?php $referencia ?>" class="form-control" placeholder=<?php echo $referencia ?>>
                     </div>
                     <!-- precio -->
                     <div class="form-group  mt-2">
-                        <input type="number" name="precio" value="<?php $precio ?>" class="form-control" placeholder="Actualiza el precio del producto">
+                        <input type="number" name="precio" value="<?php $precio ?>" class="form-control" placeholder=<?php echo $precio ?>>
                     </div>
                     <!-- peso -->
                     <div class="form-group  mt-2">
-                        <input type="number" name="peso" value="<?php $peso ?>" class="form-control" placeholder="Actualiza el peso del producto">
+                        <input type="number" name="peso" value="<?php $peso ?>" class="form-control" placeholder=<?php echo $peso ?>>
                     </div>
                     <!-- stock -->
                     <div class="form-group  mt-2">
-                        <input type="number" name="stock" value="<?php $stock ?>" class="form-control" placeholder="Actualiza el stock del producto">
+                        <input type="number" name="stock" value="<?php $stock ?>" class="form-control" placeholder=<?php echo $stock ?>>
                     </div>
                     <!--  categoria -->
-                    <select class="form-select  mt-2 " aria-label=".form-select-sm example" value="<?php $categoria ?>" name="categorias">
+                    <select class="form-select  mt-2 " aria-label=".form-select-sm example" value="<?php echo $categoria ?>" name="categorias">
 
-                        <option selected disabled>Actualiza la categoria</option>
+                        <option selected disabled><?php $categoria ?></option>
 
 
                         <?php $querySelectCategorias = "SELECT id, categoria FROM categorias";

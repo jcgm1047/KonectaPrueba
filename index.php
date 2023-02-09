@@ -38,6 +38,10 @@
                     <div class="form-group  mt-2">
                         <input type="number" name="peso" class="form-control" placeholder="Peso del producto">
                     </div>
+                    <!-- stock -->
+                    <div class="form-group  mt-2">
+                        <input type="number" name="stock" class="form-control" placeholder="Stock del producto">
+                    </div>
                     <!--  categoria -->
                     <select class="form-select  mt-2 " aria-label=".form-select-sm example" name="categoria">
 
@@ -51,20 +55,21 @@
                             <option value="<?php echo $row['id'] ?>"><?php echo $row['categoria'] ?></option>
 
                         <?php }
-                         ?>
-
+                        ?>
 
                     </select>
-                    <!-- stock -->
-                    <div class="form-group  mt-2">
-                        <input type="number" name="stock" class="form-control" placeholder="Stock del producto">
-                    </div>
+
                     <div class="d-grid gap-2">
                         <input type="submit" class="btn btn-success  mt-2 " name="guardarProducto" value="Guardar">
                     </div>
                 </form>
+
+                <a href="categorias.php" class="btn btn-secondary  mt-2 " name="crearCategoria">Crear Categoria</a>
+
             </div>
         </div>
+
+        <!-- Tabla productos -->
         <div class="col-md-8">
 
             <table class="table table-bordered">
